@@ -806,3 +806,10 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 }
 
+.main-sidebar {
+	min-height: 600px;
+}
+
+.main-center {
+	min-height: 600px;
+}
