@@ -25,7 +25,66 @@
 				</button>
 			</div>
 			<div class="collapse navbar-collapse navbar-1">
-				<?php wp_nav_menu(array('theme_lacation' => 'nav-menu', 'menu_class' => 'site-navigation nav navbar-nav')); ?>
+				<?php /* wp_nav_menu(array('theme_lacation' => 'nav-menu', 'menu_class' => 'site-navigation nav navbar-nav')); */
+				// Получим элементы меню на основе параметра $menu_name (тоже что и 'theme_location' или 'menu' в аргументах wp_nav_menu)
+				// Этот код - основа функции wp_nav_menu, где получается ID меню из слага
+
+				$menu_name = 'nav-menu';
+				$submenu = false;
+				$locations = get_nav_menu_locations();
+
+				if( $locations && isset($locations[ $menu_name ]) )
+				{
+					$menu = wp_get_nav_menu_object( $locations[ $menu_name ] ); // получаем объект меню
+
+					$menu_items = wp_get_nav_menu_items( $menu ); // получаем элементы меню
+
+					// создаем список
+					$menu_list = '<ul id="menu-' . $menu_name . '" class="site-navigation nav navbar-nav">';
+
+					foreach ( (array) $menu_items as $key => $menu_item )
+					{	
+						if ($submenu == false)
+						{
+							if ($menu_item->url != '#' && $menu_item->menu_item_parent == 0)
+							{
+								//TODO Написать добавление простого пункта меню. ГОТОВО.
+								$menu_list .= '<li><a href="' . $menu_item->url . '" class="ltc-persian-red">' . $menu_item->title . '</a></li>';
+							} elseif ($menu_item->url == '#' && $menu_item->menu_item_parent == 0)
+							{
+								//TODO Написать начало саб меню. ГОТОВО
+								$submenu = true;
+								$menu_list .= '<li><div class="dropdown"><a href="'.$menu_item->url.'" class="dropdown-toggle ltc-persian-red" data-toggle="dropdown" aria-expanded="false">'.$menu_item->title.'<span class="caret"></span></a><ul class="dropdown-menu" role="menu">';
+							}
+						} else {
+							if ($menu_item->menu_item_parent != 0)
+							{
+								//TODO Написать добавление саб-пункта меню
+								$menu_list .= '<li><a href="' . $menu_item->url . '" class="ltc-persian-red">' . $menu_item->title . '</a></li>';
+							} else {
+								//TODO Написать окончание сабменю
+								$submenu = false;
+								$menu_list .= '</ul></div><li><a href="' . $menu_item->url . '" class="ltc-persian-red">' . $menu_item->title . '</a></li>';
+							}
+								
+						}
+						/*if ($menu_item->url == '#' && $menu_item->menu_item_parent == 0 && $submenu == false )
+						{
+							//TODO Добавить шапку сабменю
+							$submenu = true;
+						} elseif ($menu_item->menu_item_parent != 0 && $submenu == true)
+						{
+							//TODO Написать добавление эл меню
+							$menu_list .= '<li><a href="' . $menu_item->url . '" class="ltc-persian-red">' . $menu_item->title . ' - '.$menu_item->url.'</a></li>';
+						}*/
+					}
+					
+					$menu_list .= '</ul>';
+				}
+				else 
+					$menu_list = '<ul class="site-navigation nav navbar-nav"><li>Меню "' . $menu_name . '" не определено.</li></ul>';
+				echo $menu_list;
+				?>
 				<!--<ul class="site-navigation nav navbar-nav">
 					<li>
 						<a href="index.html" class="ltc-persian-red">Главная</a>
