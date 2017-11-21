@@ -40,7 +40,8 @@
 					$menu_items = wp_get_nav_menu_items( $menu ); // получаем элементы меню
 
 					// создаем список
-					$menu_list = '<ul id="menu-' . $menu_name . '" class="site-navigation nav navbar-nav">';
+					//$menu_list = '<ul id="menu-' . $menu_name . '" class="site-navigation nav navbar-nav">';
+					$menu_list = '<ul class="site-navigation nav navbar-nav">';
 
 					foreach ( (array) $menu_items as $key => $menu_item )
 					{	
