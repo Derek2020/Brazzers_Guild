@@ -86,49 +86,6 @@
 					$menu_list = '<ul class="site-navigation nav navbar-nav"><li>Меню "' . $menu_name . '" не определено.</li></ul>';
 				echo $menu_list;
 				?>
-				<!--<ul class="site-navigation nav navbar-nav">
-					<li>
-						<a href="index.html" class="ltc-persian-red">Главная</a>
-					</li>
-					<li>
-						<a href="index.html" class="ltc-persian-red">Новости</a>
-					</li>
-					<li>
-						<div class="dropdown">
-							<a href="#" class="dropdown-toggle ltc-persian-red" data-toggle="dropdown" aria-expanded="false">Гильдия<span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="index.html" class="ltc-persian-red">Устав</a>
-								</li>
-								<li>
-									<a href="index.html" class="ltc-persian-red">Состав</a>
-								</li>
-								<li>
-									<a href="index.html" class="ltc-persian-red">Эвенты</a>
-								</li>
-								<li>
-									<a href="index.html" class="ltc-persian-red">Фотогалерея</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<div class="dropdown">
-							<a href="#" class="dropdown-toggle ltc-persian-red" data-toggle="dropdown" aria-expanded="false">Рекрутинг<span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="index.html" class="ltc-persian-red">Вакансии</a>
-								</li>
-								<li>
-									<a href="index.html" class="ltc-persian-red">Подать заявку</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li>
-						<a href="index.html" class="ltc-persian-red">Контакты</a>
-					</li>
-				</ul>-->
 			</div>
 		</nav>
 	</div>
