@@ -29,14 +29,17 @@
 			</div>
 			<div class="col-sm-6">
 				<h2 class="mg-lg tc-persian-red">
-					<strong>Гильдия BRAZZERS</strong>
+					<strong><?php bloginfo('name'); ?></strong>
 				</h2>
-				<h3 class="mg-sm tc-persian-red">
-					Молодая стремительно растущая гильдия
-				</h3>
+					<?php
+						the_post();
+						the_title( '<h3 class="mg-sm tc-persian-red">', '</h3>' );
+					?>
 				<p class="mg-lg">
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-				</p><a href="index.html" class="btn   btn-lg btn-persian-red">Подать заявку</a>
+					<?php
+						the_content();
+					?>
+				</p><a href="#" class="btn   btn-lg btn-persian-red">Подать заявку</a>
 			</div>
 		</div>
 	</div>
