@@ -2,6 +2,10 @@
 
 show_admin_bar(false);
 
+remove_filter( 'the_content', 'wpautop' );// для контента
+remove_filter( 'the_excerpt', 'wpautop' );// для анонсов
+remove_filter( 'comment_text', 'wpautop' );// для комментарий
+
 function theme_name_scripts() 
 {
 	wp_enqueue_style( 'bootstrap.min', get_template_directory_uri() . '/css/bootstrap.min.css' );
